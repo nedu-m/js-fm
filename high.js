@@ -53,8 +53,8 @@ function addByX(x) {
 }
 
 const addByTwo = addByX(2);
-console.log(addByTwo(3));
-console.log(addByTwo(4));
+// console.log(addByTwo(3));
+// console.log(addByTwo(4));
 
 function once(func) {
   return function () {
@@ -63,7 +63,7 @@ function once(func) {
 }
 
 const onceFunc = once(addByTwo(4))
-console.log(onceFunc());
+// console.log(onceFunc());
 
 function after(times, callback) {
   let timesCalled = 0;
@@ -81,12 +81,91 @@ const called = function (string) { return ('hello ' + string); };
 const afterCalled = after(3, called);
 
 // UNCOMMENT THESE LINES TO TEST YOUR WORK
-console.log(afterCalled('world')); // -> nothing is printed
-console.log(afterCalled('world')); // -> nothing is printed
-console.log(afterCalled('world')); // -> 'hello world' is printed
+//console.log(afterCalled('world')); // -> 'hello world' is printed
 
 function printHello() {
   console.log('hello');
 }
 
-console.log(setTimeout(printHello, 5000))
+//console.log(setTimeout(printHello, 5000))
+
+function delay(callback, milliseconds) {
+  return function () {
+    setTimeout(callback, milliseconds)
+  };
+}
+
+let count = 0;
+//console.log(count)
+//setTimeout(() => console.log(count), 1000)
+
+function defineFirstArg(callback, a) {
+  return function (b) {
+    return callback(a, b);
+  }
+}
+
+const subtract = function (big, small) {
+  return big - small;
+};
+
+const subFrom20 = defineFirstArg(subtract, 20)
+console.log(subFrom20(5));
+
+
+//Callback Queue and Event loop
+function printHello() {
+  console.log('hello');
+}
+
+function hiddenHello() {
+  console.log('hidden hello');
+}
+
+setTimeout(printHello, 0);
+
+//hiddenHello();
+//console.log('Yup, still running');
+
+//Async function
+function hiAndGoodbye() {
+  console.log('hi');
+  setTimeout(() => console.log('goodbye'), 2000)
+}
+
+//hiAndGoodbye();
+
+function brokenHi() {
+  function hi() {
+    console.log('hi again')
+  }
+
+  setInterval(hi, 1000);
+}
+
+//brokenHi();
+
+//Clear interval
+function hiForNow() {
+  function hi() {
+    console.log('hi again')
+  }
+
+  let hiId = setInterval(hi, 1000);
+  setTimeout(() => clearInterval(hiId), 5000);
+}
+hiForNow()
+
+function everyXsecsForYsecs(func, interval, duration) {
+  const id = setInterval(func, interval * 1000);
+  function clear() {
+    clearInterval(id);
+  }
+  setTimeout(clear, duration * 1000)
+}
+
+function start() {
+  console.log('This is the end!');
+}
+
+everyXsecsForYsecs(start, 2, 20); 
