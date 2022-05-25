@@ -179,22 +179,28 @@ function display(data) {
 // futureData.then(display)
 
 //Prototype chain
-function userCreator(name, score) {
-  const newUser = Object.create(userFunctionStore);
-  newUser.name = name;
-  newUser.score = score;
-  return newUser;
+class userCreator {
+  constructor(name, score) {
+    this.name = name;
+    this.score = score;
+  }
+  increment() {
+    console.log(`${this.score + 1}`);
+  }
+  login() {
+    console.log(`${this.name} logged in`);
+  }
 }
 
-const userFunctionStore = {
-  increment: function () {
-    const add1 = () => { console.log(`${this.score + 1}`) }
-    add1();
-  },
-  login: function () { console.log(`${this.name} logged in`) }
-}
+// const userFunctionStore = {
+//   increment: function () {
+//     const add1 = () => { console.log(`${this.score + 1}`) }
+//     add1();
+//   },
+//   login: function () { console.log(`${this.name} logged in`) }
+// }
 
-const user1 = userCreator('Jon', 16)
+const user1 = new userCreator('Jon', 16)
 user1.increment();
 user1.login();
 user1.hasOwnProperty('name');
