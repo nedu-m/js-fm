@@ -110,7 +110,7 @@ const subtract = function (big, small) {
 };
 
 const subFrom20 = defineFirstArg(subtract, 20)
-console.log(subFrom20(5));
+//console.log(subFrom20(5));
 
 
 //Callback Queue and Event loop
@@ -122,7 +122,7 @@ function hiddenHello() {
   console.log('hidden hello');
 }
 
-setTimeout(printHello, 0);
+//setTimeout(printHello, 0);
 
 //hiddenHello();
 //console.log('Yup, still running');
@@ -154,7 +154,7 @@ function hiForNow() {
   let hiId = setInterval(hi, 1000);
   setTimeout(() => clearInterval(hiId), 5000);
 }
-hiForNow()
+//hiForNow()
 
 function everyXsecsForYsecs(func, interval, duration) {
   const id = setInterval(func, interval * 1000);
@@ -168,4 +168,30 @@ function start() {
   console.log('This is the end!');
 }
 
-everyXsecsForYsecs(start, 2, 20); 
+//everyXsecsForYsecs(start, 2, 20); 
+
+
+//Promise
+function display(data) {
+  console.log(data)
+}
+
+const futureData = fetch('some-api');
+// futureData.then(display)
+
+//Prototype chain
+function userCreator(name, score) {
+  const newUser = Object.create(userFunctionStore);
+  newUser.name = name;
+  newUser.score = score;
+  return newUser;
+}
+
+const userFunctionStore = {
+  increment: function () { console.log(`${this.score++}`) },
+  login: function () { console.log(`${this.name} logged in`) }
+}
+
+const user1 = userCreator('Jon', 16)
+// user1.increment();
+// user1.login();
