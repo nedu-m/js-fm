@@ -175,8 +175,7 @@ function start() {
 function display(data) {
   console.log(data)
 }
-
-const futureData = fetch('some-api');
+// const futureData = fetch('some-api');
 // futureData.then(display)
 
 //Prototype chain
@@ -188,10 +187,14 @@ function userCreator(name, score) {
 }
 
 const userFunctionStore = {
-  increment: function () { console.log(`${this.score++}`) },
+  increment: function () {
+    const add1 = () => { console.log(`${this.score + 1}`) }
+    add1();
+  },
   login: function () { console.log(`${this.name} logged in`) }
 }
 
 const user1 = userCreator('Jon', 16)
-// user1.increment();
-// user1.login();
+user1.increment();
+user1.login();
+user1.hasOwnProperty('name');
