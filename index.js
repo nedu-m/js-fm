@@ -201,6 +201,6 @@ class userCreator {
 // }
 
 const user1 = new userCreator('Jon', 16)
-user1.increment();
-user1.login();
-user1.hasOwnProperty('name');
+// user1.increment();
+// user1.login();
+// user1.hasOwnProperty('name');
