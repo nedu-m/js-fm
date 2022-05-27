@@ -4,7 +4,7 @@ var x = null
 //console.log(typeof x) // "object"
 
 var v = 42n
-//console.log(typeof v) // "bigint"
+//console.log(typeof v)// "bigint"
 
 //Negative zero
 function formatTrend(trendRate) {

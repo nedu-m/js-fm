@@ -1,7 +1,7 @@
 // TODO: write the validation functions
 function isValidName(name) {
   if (
-    typeof name === "string"
+    typeof name == "string"
     && name.trim().length >= 3
   ) {
     return true
