@@ -38,3 +38,16 @@ function isItBirthDay() {
 }
 
 // limitedBirthdayWish(isItBirthDay, 2, 20)
+
+//Lexical scope
+var teacher = "Suzy"
+
+function otherTeacher() {
+  var teacher = "Kyle"
+
+  function ask(question) {
+    console.log(teacher, question)
+  }
+
+  ask("Why")
+}
