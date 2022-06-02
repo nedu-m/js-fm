@@ -96,8 +96,8 @@ function delay(callback, milliseconds) {
 }
 
 let count = 0;
-//console.log(count)
-//setTimeout(() => console.log(count), 1000)
+// console.log(count)
+// setTimeout(() => console.log(count), 1000)
 
 function defineFirstArg(callback, a) {
   return function (b) {
@@ -143,7 +143,7 @@ function brokenHi() {
   setInterval(hi, 1000);
 }
 
-//brokenHi();
+// brokenHi();
 
 //Clear interval
 function hiForNow() {
@@ -168,7 +168,7 @@ function start() {
   console.log('This is the end!');
 }
 
-//everyXsecsForYsecs(start, 2, 20); 
+everyXsecsForYsecs(start, 2, 20);
 
 
 //Promise
